@@ -15,18 +15,28 @@ while True:
             break  # Break the loop if the inputted name is valid
 
     while True:   # Loop for gender
-        input_gender = input("Please type your gender (female/male): ").lower()  # Use lower function to handle all cases of letter
+        input_gender = input("Please input your gender (female/male): ").lower()  # Use lower function to handle all cases of letter
 
         if input_gender not in ["female", "male"]:    # If the inputted gender is not female or male,
             print("Please choose between female or male")   # Print an error message
         else:
             break   # Break the loop if the inputted gender is valid
 
-    while True:
+    while True:  # Loop for age
         try:
             input_age = int(input("Please input age: "))  # Ask the user to input number only in age 
             break  # If the age is valid, break the loop
         except:
             print("Please input a valid number for age.")  # Else, print an error message
+
+    while True:  # Loop for marital status
+        input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower()  # Use lower function to handle all cases of letter
+
+        if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:    # If the inputted marital status is not valid,
+            print("Please input a valid marital status")   # Print an error message
+        else:
+            break   # Break the loop if the inputted marital status is valid
+
+
 
         
