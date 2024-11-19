@@ -4,6 +4,8 @@ name_invalid_chars = [63, 123, 125, 91, 93, 36, 42, 37, 33, 38, 64, 94, 124, 92,
 
 address_invalid_chars = [33, 42, 126, 96, 60, 62, 92, 124, 37, 34, 39, 36, 43]
 
+number_invalid_chars = [33, 64, 35, 36, 37, 94, 38, 42, 40, 41, 61, 43, 58, 59, 34, 39, 60, 62, 63, 92, 47, 124, 96, 126, 123, 125, 91, 93, 95, 46, 44]
+
 # Create a main loop for all personal information
 while True:
 
@@ -47,6 +49,17 @@ while True:
             continue 
         else:
             break  # Break the loop if the inputted address is valid
+
+    while True: # Loop for Phone Number
+        input_phone_number = input("Please input a phone number: ")
+
+        if any(ord(char) in number_invalid_chars for char in input_phone_number):  # Check if the inputted phone number include invalid characters for number
+            print("Please input a valid phone number, international or local format.")  # If yes, print an error message
+            continue 
+        else:
+            break  # Break the loop if the inputted phone number is valid
+
+
 
 
 
