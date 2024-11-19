@@ -22,4 +22,11 @@ while True:
         else:
             break   # Break the loop if the inputted gender is valid
 
-            
+    while True:
+        try:
+            input_age = int(input("Please input age: "))  # Ask the user to input number only in age 
+            break  # If the age is valid, break the loop
+        except:
+            print("Please input a valid number for age.")  # Else, print an error message
+
+        
