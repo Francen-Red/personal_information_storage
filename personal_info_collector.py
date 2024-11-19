@@ -4,6 +4,8 @@ name_invalid_chars = [63, 123, 125, 91, 93, 36, 42, 37, 33, 38, 64, 94, 124, 92,
 
 address_invalid_chars = [33, 42, 126, 96, 60, 62, 92, 124, 37, 34, 39, 36, 43]
 
+email_invalid_chars = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 47, 58, 59, 60, 61, 62, 63, 91, 92, 93, 94, 96] 
+
 # Create a main loop for all personal information
 while True:
 
@@ -56,6 +58,15 @@ while True:
             continue 
         else:
             break  # Break the loop if the inputted phone number is valid
+
+    while True: # Loop for Email Address
+        input_email = input("Please input an email address: ")
+
+        if any(ord(char) in email_invalid_chars for char in input_email): # Check if the inputted email address include invalid characters for email address
+            print("Please input a valid email address.")  # If yes, print an error message
+            continue
+        else:
+            break  # Break the loop if the inputted email address is valid
 
 
 
