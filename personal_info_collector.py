@@ -90,8 +90,8 @@ while True:
             f"{violet}Email = {reset_color}{input_email}\n"
             f"\n{brown}Is this correct? (yes or no):{reset_color} ").lower()  
         
-        if confirmation not in ["yes", "no"]:    # If the inputted gender is not female or male,
-            print("Please choose between yes or no")
+        if confirmation not in ["yes", "no"]:    # If the confirmation reply is not "yes" or "no"
+            print("Please choose between yes or no")   # Print an error message
 
         # If the information is correct, store it in the dictionary
         elif confirmation == "yes":
@@ -171,6 +171,11 @@ while True:
 
 # Break the retry loop once a valid input is given
                 break
+
+# Ask if the user wants to input another entry
+    another_entry = input("Do you want to input another entry? (yes/no): ").lower()
+    if another_entry != "yes":  # If the user does not want to input another entry
+        break  # Break the loop
 
 
 
