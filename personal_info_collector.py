@@ -68,6 +68,18 @@ while True:
         else:
             break  # Break the loop if the inputted email address is valid
 
+    while True:  # Loop for confirmation
+        confirmation = input(f"\nName = {input_name}\n"   # Use formatted strings to display every information of the user's input
+            f"Gender = {input_gender}\n"
+            f"Age = {input_age}\n"
+            f"Marital Status = {input_marital_status}\n"
+            f"Address = {input_address}\n"
+            f"Phone Number = {input_phone_number}\n"
+            f"Email = {input_email}\n"
+            "Is this correct? (yes or no): ").lower()  
+        
+        
+       
 
 
 
