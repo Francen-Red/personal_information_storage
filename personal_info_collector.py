@@ -186,4 +186,4 @@ with open("personal_info.txt", "a") as file:
         file.write(f"Address: {input_address}\n")
         file.write(f"Phone Number: {input_phone_number}\n")
         file.write(f"Email: {input_email}\n")
-        file.write("\n" + "="*40 + "\n\n")   # Add a separator to easily distinguish different information
+        file.write("\n" + "="*40 + "\n\n")   # Add a separator to easily distinguish different information entry
