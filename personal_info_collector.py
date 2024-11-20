@@ -1,10 +1,22 @@
 personal_info = {}  # Initialize a dictionary to store personal information
 
-name_invalid_chars = [63, 123, 125, 91, 93, 36, 42, 37, 33, 38, 64, 94, 124, 92, 47, 60, 62, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57] # Use ASCII for format conditions on name
+# Define invalid characters for name, address, and email using ASCII values
+name_invalid_chars = [63, 123, 125, 91, 93, 36, 42, 37, 33, 38, 64, 94, 124, 92, 47, 60, 62, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57] 
 
 address_invalid_chars = [33, 42, 126, 96, 60, 62, 92, 124, 37, 34, 39, 36, 43]
 
 email_invalid_chars = [32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 44, 47, 58, 59, 60, 61, 62, 63, 91, 92, 93, 94, 96] 
+
+# Define text colors using ANSII color codes
+red = "\033[31m"
+orange = "\033[38;5;214m"
+yellow = "\033[33m"
+green = "\033[32m"
+blue = "\033[34m"
+pink = "\033[38;5;213m"
+violet = "\033[35m"
+brown = "\033[38;5;94m"
+reset_color = "\033[0m"
 
 # Create a main loop for all personal information
 while True:
@@ -69,14 +81,14 @@ while True:
             break  # Break the loop if the inputted email address is valid
 
     while True:  # Loop for confirmation
-        confirmation = input(f"\nName = {input_name}\n"   # Use formatted strings to display every information of the user's input
-            f"Gender = {input_gender}\n"
-            f"Age = {input_age}\n"
-            f"Marital Status = {input_marital_status}\n"
-            f"Address = {input_address}\n"
-            f"Phone Number = {input_phone_number}\n"
-            f"Email = {input_email}\n"
-            "Is this correct? (yes or no): ").lower()  
+        confirmation = input(f"\n{red}Name = {reset_color}{input_name}\n"   # Use formatted strings to display every information of the user's input
+            f"{orange}Gender = {reset_color}{input_gender}\n"
+            f"{yellow}Age = {reset_color}{input_age}\n"
+            f"{green}Marital Status = {reset_color}{input_marital_status}\n"
+            f"{blue}Address = {reset_color}{input_address}\n"
+            f"{pink}Phone Number = {reset_color}{input_phone_number}\n"
+            f"{violet}Email = {reset_color}{input_email}\n"
+            f"\n{brown}Is this correct? (yes or no):{reset_color} ").lower()  
         
         
        
