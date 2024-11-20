@@ -90,9 +90,29 @@ while True:
             f"{violet}Email = {reset_color}{input_email}\n"
             f"\n{brown}Is this correct? (yes or no):{reset_color} ").lower()  
         
-        
-       
+        if confirmation not in ["yes", "no"]:    # If the inputted gender is not female or male,
+            print("Please choose between yes or no")
 
+        # If the information is correct, store it in the dictionary
+        elif confirmation == "yes":
+            personal_info[input_name] = {
+            "Gender": input_gender,
+            "Age": input_age,
+            "Marital Status": input_marital_status,
+            "Address": input_address,
+            "Phone Number": input_phone_number,
+            "Email": input_email
+            }
+            break    
+
+        elif confirmation == "no":
+            while True:
+                retry_choice =input("Retry name, gender, age, marital status, address, phone number, or email? Choose one: ").lower()
+
+                if retry_choice not in ["name", "gender", "age", "marital status", "address", "phone number", "email"]:    # If the inputted gender is not female or male,
+                    print(f"{red}Please choose one (name/gender/age/marital status/address/phone number/email){reset_color}")
+                    continue
+                
 
 
 
