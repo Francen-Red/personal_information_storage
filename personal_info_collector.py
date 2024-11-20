@@ -112,7 +112,65 @@ while True:
                 if retry_choice not in ["name", "gender", "age", "marital status", "address", "phone number", "email"]:    # If the inputted gender is not female or male,
                     print(f"{red}Please choose one (name/gender/age/marital status/address/phone number/email){reset_color}")
                     continue
-                
+
+                if retry_choice == "name":
+                    while True:
+                        input_name = input("Please input a name: ")
+                        if any(ord(char) in name_invalid_chars for char in input_name):
+                            print("Please input a valid name.")
+                        else:
+                            break
+
+                elif retry_choice == "gender":
+                    while True:
+                        input_gender = input("Please input your gender (female/male): ").lower()
+                        if input_gender not in ["female", "male"]:
+                            print("Please choose between female or male")
+                        else:
+                            break
+
+                elif retry_choice == "age":
+                    while True:
+                        try:
+                            input_age = int(input("Please input age: "))
+                            break
+                        except:
+                            print("Please input a valid number for age.")
+
+                elif retry_choice == "marital status":
+                    while True:
+                        input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower()
+                        if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:
+                            print("Please input a valid marital status")
+                        else:
+                            break
+
+                elif retry_choice == "address":
+                    while True:
+                        input_address = input("Please input an address: ")
+                        if any(ord(char) in address_invalid_chars for char in input_address):
+                            print("Please remove characters that are not allowed in an address.")
+                        else:
+                            break
+
+                elif retry_choice == "phone number":
+                    while True:
+                        input_phone_number = input("Please input a phone number: ")
+                        if not input_phone_number.isdigit() and any(char not in "0123456789-+" for char in input_phone_number):
+                            print("Please input a valid phone number, in international or local format.")
+                        else:
+                            break
+
+                elif retry_choice == "email":
+                    while True:
+                        input_email = input("Please input an email address: ")
+                        if any(ord(char) in email_invalid_chars for char in input_email):
+                            print("Please input a valid email address.")
+                        else:
+                            break
+
+# Break the retry loop once a valid input is given
+                break
 
 
 
