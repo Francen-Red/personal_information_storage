@@ -34,7 +34,7 @@ while True:
             break  # Break the loop if the inputted name is valid
 
     while True:   # Loop for gender
-        input_gender = input("Please input your gender (female/male): ").lower()  # Use lower function to handle all cases of letter
+        input_gender = input("Please input your gender (female/male): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
 
         if input_gender not in ["female", "male"]:    # If the inputted gender is not female or male,
             print("Please choose between female or male")   # Print an error message
@@ -49,7 +49,7 @@ while True:
             print("Please input a valid number for age.")  # Else, print an error message
 
     while True:  # Loop for marital status
-        input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower()  # Use lower function to handle all cases of letter
+        input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
 
         if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:    # If the inputted marital status is not valid,
             print("Please input a valid marital status")   # Print an error message
@@ -57,11 +57,13 @@ while True:
             break   # Break the loop if the inputted marital status is valid
 
     while True:  # Loop for Address
-        input_address= input("Please input an address: ")
+        input_address= input("Please input an address: ").strip()
 
         if any(ord(char) in address_invalid_chars for char in input_address):  # Check if the inputted address include invalid characters for address
             print("Please remove characters that are not allowed in an address.")  # If yes, print an error message
             continue 
+        elif not input_address:  # Check if input is empty
+            print("Address cannot be empty. Please input an address")
         else:
             break  # Break the loop if the inputted address is valid
 
