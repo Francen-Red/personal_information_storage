@@ -22,11 +22,14 @@ reset_color = "\033[0m"
 while True:
 
     while True:   # Loop for name
-        input_name = input("Please input a name: ")
+        input_name = input("Please input a name: ").strip()  # Strip any unnecessary spaces
 
         if any(ord(char) in name_invalid_chars for char in input_name):  # Check if the inputted name include invalid characters for name
             print("Please input a valid name.")  # If yes, print an error message
             continue 
+        elif not input_name:   # Check if input is empty
+            print("Name cannot be empty. Please input a name")
+            continue
         else:
             break  # Break the loop if the inputted name is valid
 
