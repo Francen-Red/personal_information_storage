@@ -25,10 +25,10 @@ while True:
         input_name = input("Please input a name: ").strip()  # Strip any unnecessary spaces
 
         if any(ord(char) in name_invalid_chars for char in input_name):  # Check if the inputted name include invalid characters for name
-            print("Please input a valid name.")  # If yes, print an error message
+            print(f"{red}Please input a valid name.{reset_color}")  # If yes, print an error message
             continue 
         elif not input_name:   # Check if input is empty
-            print("Name cannot be empty. Please input a name")
+            print(f"{red}Name cannot be empty. Please input a name{reset_color}")
             continue
         else:
             break  # Break the loop if the inputted name is valid
@@ -37,22 +37,25 @@ while True:
         input_gender = input("Please input your gender (female/male): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
 
         if input_gender not in ["female", "male"]:    # If the inputted gender is not female or male,
-            print("Please choose between female or male")   # Print an error message
+            print(f"{red}Please choose between female or male{reset_color}")   # Print an error message
         else:
             break   # Break the loop if the inputted gender is valid
 
     while True:  # Loop for age
         try:
-            input_age = int(input("Please input age: "))  # Ask the user to input number only in age 
-            break  # If the age is valid, break the loop
+            input_age = int(input("Please input age: "))  # Ask the user to input number only in age
+            if 1 <= input_age <= 120:  # Check if the person's age is valid (116 is so far the oldest age of a person)
+                break  # If the age is valid, break the loop
+            else:
+                print(f"{red}Please input a valid age. Type 1 if the person is months old only{reset_color}")
         except:
-            print("Please input a valid number for age.")  # Else, print an error message
+            print(f"{red}Please input a valid number for age.{reset_color}")  # Else, print an error message
 
     while True:  # Loop for marital status
         input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
 
         if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:    # If the inputted marital status is not valid,
-            print("Please input a valid marital status")   # Print an error message
+            print(f"{red}Please input a valid marital status.{reset_color}")   # Print an error message
         else:
             break   # Break the loop if the inputted marital status is valid
 
@@ -60,10 +63,10 @@ while True:
         input_address= input("Please input an address: ").strip()
 
         if any(ord(char) in address_invalid_chars for char in input_address):  # Check if the inputted address include invalid characters for address
-            print("Please remove characters that are not allowed in an address.")  # If yes, print an error message
+            print(f"{red}Please remove characters that are not allowed in an address.{reset_color}")  # If yes, print an error message
             continue 
         elif not input_address:  # Check if input is empty
-            print("Address cannot be empty. Please input an address")
+            print(f"{red}Address cannot be empty. Please input an address.{reset_color}")
         else:
             break  # Break the loop if the inputted address is valid
 
@@ -71,17 +74,19 @@ while True:
         input_phone_number = input("Please input a phone number: ")
   
         if not input_phone_number.isdigit() and any(char not in "0123456789-+" for char in input_phone_number):  # Check if any invalid characters (non-digit and invalid symbols) are included
-            print("Please input a valid phone number, international or local format.")  # If yes, print an error message
+            print(f"{red}Please input a valid phone number, international or local format.{reset_color}")  # If yes, print an error message
             continue 
         else:
             break  # Break the loop if the inputted phone number is valid
 
     while True: # Loop for Email Address
-        input_email = input("Please input an email address: ")
+        input_email = input("Please input an email address: ").strip()
 
         if any(ord(char) in email_invalid_chars for char in input_email): # Check if the inputted email address include invalid characters for email address
-            print("Please input a valid email address.")  # If yes, print an error message
+            print(f"{red}Please input a valid email address.{reset_color}")  # If yes, print an error message
             continue
+        elif not input_email:
+            print(f"{red}Email cannot be empty. Please input an email.{reset_color}")
         else:
             break  # Break the loop if the inputted email address is valid
 
@@ -96,7 +101,7 @@ while True:
             f"\n{brown}Is this correct? (yes or no):{reset_color} ").lower()  
         
         if confirmation not in ["yes", "no"]:    # If the confirmation reply is not "yes" or "no"
-            print("Please choose between yes or no")   # Print an error message
+            print(f"{red}Please choose between yes or no")   # Print an error message
 
         # If the information is correct, store it in the dictionary
         elif confirmation == "yes":
@@ -119,58 +124,74 @@ while True:
                     continue
 
                 if retry_choice == "name":
-                    while True:
-                        input_name = input("Please input a name: ")
-                        if any(ord(char) in name_invalid_chars for char in input_name):
-                            print("Please input a valid name.")
+                    while True:   # Loop for name
+                        input_name = input("Please input a name: ").strip()  # Strip any unnecessary spaces
+
+                        if any(ord(char) in name_invalid_chars for char in input_name):  # Check if the inputted name include invalid characters for name
+                            print(f"{red}Please input a valid name.{reset_color}")  # If yes, print an error message
+                            continue 
+                        elif not input_name:   # Check if input is empty
+                            print(f"{red}Name cannot be empty. Please input a name{reset_color}")
+                            continue
                         else:
-                            break
+                            break  # Break the loop if the inputted name is valid
 
                 elif retry_choice == "gender":
-                    while True:
-                        input_gender = input("Please input your gender (female/male): ").lower()
-                        if input_gender not in ["female", "male"]:
-                            print("Please choose between female or male")
-                        else:
-                            break
+                   while True:   # Loop for gender
+                    input_gender = input("Please input your gender (female/male): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
+
+                    if input_gender not in ["female", "male"]:    # If the inputted gender is not female or male,
+                        print(f"{red}Please choose between female or male{reset_color}")   # Print an error message
+                    else:
+                        break   # Break the loop if the inputted gender is valid
 
                 elif retry_choice == "age":
-                    while True:
+                     while True:  # Loop for age
                         try:
-                            input_age = int(input("Please input age: "))
-                            break
+                            input_age = int(input("Please input age: "))  # Ask the user to input number only in age
+                            if 1 <= input_age <= 120:  # Check if the person's age is valid (116 is so far the oldest age of a person)
+                                break  # If the age is valid, break the loop
+                            else:
+                                print(f"{red}Please input a valid age. Type 1 if the person is months old only{reset_color}")
                         except:
-                            print("Please input a valid number for age.")
+                            print(f"{red}Please input a valid number for age.{reset_color}")  # Else, print an error message
 
                 elif retry_choice == "marital status":
-                    while True:
-                        input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower()
-                        if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:
-                            print("Please input a valid marital status")
-                        else:
-                            break
+                   while True:  # Loop for marital status
+                    input_marital_status = input("Please input your marital status (single/married/separated/divorced/widowed): ").lower().strip()  # Use lower function to handle all cases of letter, and strip function to remove unnecessary spaces
+
+                    if input_marital_status not in ["single", "married", "separated", "divorced", "widowed"]:    # If the inputted marital status is not valid,
+                        print(f"{red}Please input a valid marital status.{reset_color}")   # Print an error message
+                    else:
+                        break   # Break the loop if the inputted marital status is valid
 
                 elif retry_choice == "address":
-                    while True:
-                        input_address = input("Please input an address: ")
-                        if any(ord(char) in address_invalid_chars for char in input_address):
-                            print("Please remove characters that are not allowed in an address.")
+                    while True:  # Loop for Address
+                        input_address= input("Please input an address: ").strip()
+
+                        if any(ord(char) in address_invalid_chars for char in input_address):  # Check if the inputted address include invalid characters for address
+                            print(f"{red}Please remove characters that are not allowed in an address.{reset_color}")  # If yes, print an error message
+                            continue 
+                        elif not input_address:  # Check if input is empty
+                            print(f"{red}Address cannot be empty. Please input an address.{reset_color}")
                         else:
-                            break
+                            break  # Break the loop if the inputted address is valid
 
                 elif retry_choice == "phone number":
                     while True:
                         input_phone_number = input("Please input a phone number: ")
                         if not input_phone_number.isdigit() and any(char not in "0123456789-+" for char in input_phone_number):
-                            print("Please input a valid phone number, in international or local format.")
+                            print(f"{red}Please input a valid phone number, international or local format.{reset_color}")  # If yes, print an error message
                         else:
                             break
 
                 elif retry_choice == "email":
                     while True:
-                        input_email = input("Please input an email address: ")
+                        input_email = input("Please input an email address: ").strip()
                         if any(ord(char) in email_invalid_chars for char in input_email):
-                            print("Please input a valid email address.")
+                            print(f"{red}Please input a valid email address.{reset_color}")
+                        elif not input_email:
+                            print(f"{red}Email cannot be empty. Please input an email.{reset_color}")
                         else:
                             break
 
