@@ -10,4 +10,11 @@ while True:
     if personal_info:  # Ensure data is loaded before asking for input to avoid errors
         name = input("Whose personal information do you want to access?: ").strip()
 
-   
+    # Check if name exists and print the details
+        if name in personal_info:
+            print(f"\nPersonal Info for {name}:")
+            for key, value in personal_info[name].items():
+                print(f"{key}: {value}")
+        else:
+            print(f"No information found for {name}.")  # Check if name does not exist, print an error message.
+    break
