@@ -17,4 +17,11 @@ while True:
                 print(f"{key}: {value}")
         else:
             print(f"No information found for {name}.")  # Check if name does not exist, print an error message.
+
+    another_name = input("Do you want to access other personal information?(yes/no): ").lower().strip()
+    if another_name not in ["yes", "no"]:
+            print("Please choose between yes or no")
+            continue
+    if another_name == "yes": 
+         continue
     break
