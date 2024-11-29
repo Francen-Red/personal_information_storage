@@ -1,3 +1,5 @@
+import json
+
 personal_info = {}  # Initialize a dictionary to store personal information
 
 # Define invalid characters for name, address, and email using ASCII values
@@ -203,13 +205,9 @@ while True:
     if another_entry != "yes":  # If the user does not want to input another entry
         break  # Break the loop
 
-# Store the inputted information in a txt file
-with open("personal_info.txt", "a") as file:
-        file.write(f"Name: {input_name}\n")
-        file.write(f"Gender: {input_gender}\n")
-        file.write(f"Age: {input_age}\n")
-        file.write(f"Marital Status: {input_marital_status}\n")
-        file.write(f"Address: {input_address}\n")
-        file.write(f"Phone Number: {input_phone_number}\n")
-        file.write(f"Email: {input_email}\n")
-        file.write("\n" + "="*40 + "\n\n")   # Add a separator to easily distinguish different information entry
+# Store the inputted information in a txt file (JSON format)
+with open("personal_info.json", "w") as file:
+    json.dump(personal_info, file, indent=2)
+
+print(f"{pink}Information saved to file! ^_^{reset_color}")
+
